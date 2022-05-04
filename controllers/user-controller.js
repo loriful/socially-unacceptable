@@ -63,7 +63,7 @@ const UsersController = {
       addFriend({ params, body }, res) {
           Users.findOneAndUpdate(
             { _id: params.userId },
-            { $push: { friends: params.friendId}},
+            { $addToSet: { friends: params.friendId}},
             { new: true }
           )
           .select('-__v')
