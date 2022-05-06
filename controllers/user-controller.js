@@ -56,7 +56,9 @@ const UserController = {
           .catch(err => res.status(400).json(err));
       },
        
-        // delete userre
+        // delete user
+
+        //////////////// BONUS - DELETE THOUGHTS WITH USERS COMPLETED ////////////////////
       deleteUser({ params }, res) {
         User.findOne({ _id: params.id}) 
         .then (dbUserData => {
@@ -82,8 +84,11 @@ const UserController = {
         .catch(err => res.json(err));    
       },
 
+      ////////////////////////// BONUS COMPLETED ///////////////////////
+
       // get user, add friend
-      addFriend({ params, body }, res) {
+      // .route('/:userId/friends/:friendId')
+      addFriend({ params }, res) {
           User.findOneAndUpdate(
             { _id: params.userId },
             { $addToSet: { friends: params.friendId}},
