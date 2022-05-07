@@ -23,13 +23,19 @@ Practice:
   - BSON
   - Screencastify
 
- 
 ## **Table of Contents**
 - [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Questions](#questions)
 
+## **The Site View**
+
+<p align="center">
+  <img src="./public/assets/images/mockup.gif" alt="Web Page Mock-Up">
+  </b>
+  </b>
+</p>
 
 ## **Installation**
 - Requires Node and MongoDB, and npm packages Express and Mongoose
