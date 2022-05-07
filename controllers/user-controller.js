@@ -65,6 +65,11 @@ const UserController = {
             if (!dbUserData) {
               return res.status(404).json({ message: 'No user found with this id!' });
             };
+
+            if (!dbUserData.thoughts) {       // no thoughts for this user
+              return
+            };
+            
             for (i=0; i < dbUserData.thoughts.length; i++) {
                 Thought.findOneAndDelete({ _id: dbUserData.thoughts[i] })
                 .then(dbThoughtData => {
@@ -75,7 +80,7 @@ const UserController = {
                 .catch(err => res.json(err));
             }; // for
 
-            User.findOneAndDelete({ _id: params.id })
+          User.findOneAndDelete({ _id: params.id })
             .then (dbUserData=> {
                 return res.json({ message: 'User and associated thoughts, if any, deleted.'});
             })
